@@ -37,6 +37,12 @@
     font-size: clamp(64px, 20vw, 160px);
 }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+    .logo-animated {
+        font-size: 140px;
+    }
+}
+
 .logo-char {
     display: inline-block;
     font-style: italic;
