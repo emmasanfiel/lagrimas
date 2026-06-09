@@ -278,28 +278,21 @@
     box-sizing: border-box;
 }
 
-#header-home .stepper-cover,
-#header-home .stepper-onboarding {
+#header-home .stepper-cover {
+    display: none;
     position: absolute;
     right: 16px;
     top: 50%;
 }
 
-#header-home .stepper-onboarding {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-}
-
 @media (min-width: 768px) {
-    #header-home .stepper-cover,
-    #header-home .stepper-onboarding {
+    #header-home .stepper-cover {
+        display: flex;
         right: 40px;
     }
 }
 
-.stepper,
-.stepper-onboarding {
+.stepper {
     display: flex;
     gap: 8px;
     flex-direction: row;
@@ -315,10 +308,6 @@
 @media (min-width: 768px) {
     #header-home {
         padding: 0 40px;
-    }
-
-    .stepper-onboarding {
-        right: 40px;
     }
 }
 
