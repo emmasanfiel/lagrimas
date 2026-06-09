@@ -193,7 +193,6 @@ SECCIONES
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 62px;
 }
 
 @media (min-width: 768px) {
