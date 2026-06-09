@@ -610,9 +610,9 @@ SECCIONES
     color: var(--txt-dark);
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .link-start {
-        font-size: 20px;
+        font-size: 24px;
     }
 }
 
