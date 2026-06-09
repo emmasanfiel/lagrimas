@@ -182,14 +182,32 @@ class FactorNode {
     
         push();
     
-        const boxW = min(340, width * 0.84);
-        const offset = 44;
+        // Detectamos el tipo de pantalla para ajustar la caja de texto
+        const isMobile = width < 768;
+        const isTablet = width >= 768 && width < 1024;
     
-        // Ajustes de texto
-        const paddingX = 14;
-        const paddingY = 18;
-        const textSizeValue = 18;
-        const leadingValue = 22;
+        // Ancho de la caja:
+        // - Mobile: caja casi completa, pero con margen lateral
+        // - Tablet: caja algo más ancha que desktop para que el texto respire.
+        // - Desktop: mantiene un tamaño más compacto
+        const boxW = isMobile
+            ? min(320, width * 0.86)
+            : isTablet
+                ? min(380, width * 0.56)
+                : min(340, width * 0.84);
+    
+        // Distancia entre el nodo y la caja cuando no estamos en mobile
+        const offset = isTablet ? 32 : 44;
+    
+        // Padding interno de la caja
+        const paddingX = isMobile ? 18 : 20;
+        const paddingY = isMobile ? 16 : 18;
+    
+        // Texto ligeramente más pequeño en mobile para evitar cajas demasiado altas
+        const textSizeValue = isMobile ? 17 : 18;
+        const leadingValue = isMobile ? 21 : 23;
+    
+        // Ancho real disponible para el texto, descontando padding
         const textW = boxW - paddingX * 2;
     
         textFont("EB Garamond");
@@ -197,36 +215,43 @@ class FactorNode {
         textSize(textSizeValue);
         textLeading(leadingValue);
     
-        // Calcular una altura aproximada según el contenido
+        // Estimación de líneas para calcular la altura de la caja
         const estimatedLines = ceil(textWidth(this.note) / textW);
-        const boxH = max(58, estimatedLines * leadingValue + paddingY * 2);
     
-        // Aparición de la nota
+        // Altura de la caja:
+        // usar un mínimo más generoso en mobile para que no quede comprimida.
+        const boxH = max(
+            isMobile ? 72 : 64,
+            estimatedLines * leadingValue + paddingY * 2
+        );
+    
         let boxX;
         let boxY;
-        
-        // En mobile, la nota se coloca fija abajo y centrada.
-        if (width < 768) {
+    
+        // En mobile, la nota se coloca fija abajo y centrada
+        // La subimos un poco más para que no choque con los botones inferiores
+        if (isMobile) {
             boxX = (width - boxW) / 2;
-            boxY = height - boxH - 90;
+            boxY = height - boxH - 80;
         } else {
+            // En tablet/desktop, la nota aparece al lado contrario del nodo
             boxX = this.x < width / 2
                 ? this.x + offset
                 : this.x - boxW - offset;
-        
+    
             boxY = this.y - boxH / 2;
         }
     
-        // Evitar que la nota se salga del canvas
+        // Evitamos que la nota se salga del canvas
         boxX = constrain(boxX, 20, width - boxW - 20);
         boxY = constrain(boxY, 20, height - boxH - 20);
     
-        // Línea nodo → nota
+        // Línea nodo → nota.
         stroke(hsl(this.color, 0.34 * this.noteAlpha));
         strokeWeight(1);
         line(this.x, this.y, boxX + boxW / 2, boxY + boxH / 2);
     
-        // Caja de la nota
+        // Fondo de la caja
         noStroke();
         fill(hsl(MOOD_COLORS.cream, 0.9 * this.noteAlpha));
         rect(boxX, boxY, boxW, boxH, 4);

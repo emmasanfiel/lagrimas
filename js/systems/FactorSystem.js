@@ -49,7 +49,7 @@ class FactorSystem {
             new FactorNode(
               "referentes",
             [
-              "Aprendemos a relacionarnos con las emociones observando cómo las expresan quienes nos rodean.",
+              "Aprendemos a expresar nuestras emociones observando a los demás.",
               "Expresar emociones con libertad puede dar permiso a otros para hacerlo.",
               "Ver a otras personas llorar puede ayudarnos a comprender mejor las emociones ajenas."
             ],
