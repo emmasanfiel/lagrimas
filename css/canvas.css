@@ -172,7 +172,7 @@ BOTONES
     border: none;
     border-top: var(--border-top);
 
-    padding: 16px;
+    padding: 16px 4px;
 
     display: flex;
     justify-content: center;
