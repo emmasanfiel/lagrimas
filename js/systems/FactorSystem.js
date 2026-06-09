@@ -21,7 +21,7 @@ class FactorSystem {
             new FactorNode(
               "juicio social",
               [
-                "Las normas de género condicionan el llanto: los hombres son castigados por llorar; y las mujeres por llorar 'demasiado'.",
+                "Las normas de género condicionan el llanto: los hombres son castigados por llorar; y las mujeres por llorar demasiado.",
                 "Muchas personas evitan llorar en público por miedo a ser juzgadas como débiles o poco competentes.",
                 "La incomodidad ante el llanto no siempre habla de quien llora, sino del entorno que lo observa."
               ],
@@ -36,7 +36,7 @@ class FactorSystem {
               "carga emocional",
             [
               "Las lágrimas emocionales suelen aparecer cuando una experiencia nos desborda.",
-              "Llorar no siempre es una respuesta a la tristeza: también puede surgir por rabia, frustración, alivio o incluso alegría.",
+              "Llorar no siempre significa tristeza: también puede expresar rabia, frustración, alivio o alegría.",
               "Cuando las emociones se contienen durante mucho tiempo, puede costar más identificarlas."
             ],
               PI * 1.1,
