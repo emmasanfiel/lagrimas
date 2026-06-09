@@ -37,4 +37,7 @@
     --border-bottom: var(--border-style);
     --border-left: var(--border-style);
 
+     /* Altura de la pantalla */
+    --screen-height: 100dvh;
+
 }

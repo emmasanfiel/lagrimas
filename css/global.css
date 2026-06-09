@@ -18,6 +18,7 @@ html {
 body {
     font-family: "Inter", sans-serif;
     color: var(--txt-dark);
+    background-color: var(--light-beige);
 }
 
 html,
@@ -118,7 +119,7 @@ SECCIONES
 
 #story-home {
     position: relative;
-    height: 100svh;
+    height: var(--screen-height);
     overflow: hidden;
 
     background: radial-gradient(
@@ -157,7 +158,7 @@ SECCIONES
 .story-content {
     position: relative;
     z-index: 1;
-    height: 100svh;
+    height: var(--screen-height);
 }
 
 .story-step {
@@ -165,23 +166,27 @@ SECCIONES
     display: flex;
     flex-direction: column;
     inset: 0;
-    height: 100svh;
-    min-height: 100svh;
+    height: var(--screen-height);
+    min-height: var(--screen-height);
 }
 
 /* Cover (dentro de story-home) */
 
 .cover {
-    min-height: 100svh;
+    position: relative;
+    min-height: var(--screen-height);
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
     box-shadow: none;
+    overflow: hidden;
 }
 
 .container-cover {
     height: 100%;
+    width: 100%;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 48px;
@@ -202,6 +207,10 @@ SECCIONES
 }
 
 .container-scroll-text {
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -266,7 +275,7 @@ SECCIONES
 /* Onboarding */
 
 .onboarding {
-    height: 100svh;
+    height: var(--screen-height);
     background: transparent;
 
     display: flex;
@@ -277,7 +286,7 @@ SECCIONES
 .container-onboarding {
     position: relative;
     width: 100%;
-    height: 100svh;
+    height: var(--screen-height);
 
     display: flex;
     align-items: center;
@@ -412,8 +421,8 @@ SECCIONES
     position: absolute;
     inset: 0;
 
-    height: 100svh;
-    min-height: 100svh;
+    height: var(--screen-height);
+    min-height: var(--screen-height);
 
     display: flex;
     align-items: center;
