@@ -34,7 +34,7 @@
 }
 
 .logo-animated {
-    font-size: clamp(80px, 16vw, 160px);
+    font-size: clamp(64px, 20vw, 160px);
 }
 
 .logo-char {
