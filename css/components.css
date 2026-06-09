@@ -416,7 +416,7 @@ filter: blur(0);
     position: relative;
     width: 100%;
     max-width: 500px;
-    max-height: calc(100svh - 32px);
+    max-height: calc(100svh -40px);
     overflow-y: auto;
 
     background: var(--bg-light);
@@ -424,7 +424,7 @@ filter: blur(0);
 
     border: 1px solid rgba(27, 66, 109, 0.25);
 
-    padding: 64px 24px 32px;
+    padding: 32px 16px 24px;
 
     text-align: center;
 
@@ -443,8 +443,8 @@ filter: blur(0);
 
 .help-modal__close {
     position: absolute;
-    top: 16px;
-    right: 18px;
+    top: 4px;
+    right: 4px;
 
     border: 0;
     background: transparent;
@@ -458,7 +458,7 @@ filter: blur(0);
 }
 
 .help-modal__title {
-    margin: 0 0 28px;
+    margin: 0 0 16px;
 
     font-family: "EB Garamond", serif;
     font-size: 32px;
@@ -467,11 +467,11 @@ filter: blur(0);
 }
 
 .help-modal__intro {
-    margin: 0 auto 32px;
+    margin: 0 auto 24px;
 
     font-family: "EB Garamond", serif;
     font-size: 17px;
-    line-height: 1.35;
+    line-height: 1.25;
 }
 
 .help-modal__list {
@@ -479,7 +479,7 @@ filter: blur(0);
 }
 
 .help-modal__item {
-    padding: 20px 4px;
+    padding: 16px 4px;
     border-top: 1px solid rgba(27, 66, 109, 0.18);
 }
 
@@ -488,10 +488,10 @@ filter: blur(0);
 }
 
 .help-modal__item h3 {
-    margin: 0 0 12px;
+    margin: 0 0 8px;
 
     font-family: "EB Garamond", serif;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.2;
     font-weight: 700;
 }
@@ -505,7 +505,7 @@ filter: blur(0);
 }
 
 .help-modal__button {
-    margin-top: 44px;
+    margin-top: 32px;
 
     border: 0;
     background: transparent;
@@ -522,14 +522,29 @@ filter: blur(0);
 /* Desktop */
 @media (min-width: 768px) {
     .help-modal__content {
-        padding: 56px 40px 36px;
+        padding: 48px 48px 32px;
     }
 
     .help-modal__title {
         font-size: 36px;
+        margin: 0 auto 24px;
     }
 
     .help-modal__intro {
         font-size: 18px;
+        line-height: 1.4;
+        margin: 0 auto 32px;
+    }
+
+    .help-modal__item {
+        padding: 24px 8px;
+    }
+
+    .help-modal__item h3 {
+        margin: 0 0 12px;
+    }
+
+    .help-modal__button {
+        margin-top: 48px;
     }
 }
