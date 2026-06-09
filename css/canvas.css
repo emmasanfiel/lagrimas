@@ -207,6 +207,7 @@ BOTONES
     font-style: italic;
     font-weight: 500;
     color: var(--txt-dark);
+    white-space: nowrap;
 }
 
 #pause-toggle {
