@@ -1,0 +1,40 @@
+:root {
+
+    /* Colors */
+    --beige: #FFF6ED;
+    --light-beige: #FFFAF5;
+    --dark-blue: #1B426D;
+    --blue: #6594CD;
+    --light-blue: #D9E4F2;
+    --green-1: #96AD91;
+    --light-gray: #BEC0C0;
+
+    /* Gradients */
+    --gradient-radial-blue-green:
+        radial-gradient(80.91% 80.91% at 50% 50%,
+            var(--blue-1) 0%,
+            var(--green-1) 100%);
+
+
+    /* Utilidades */
+    --bg-light: var(--beige);
+    --bg-superlight: var(--light-beige);
+    --bg-blue: var(--light-blue);
+    --txt-dark: var(--dark-blue);
+    --txt-light: var(--beige);
+
+    --step-active: var(--dark-blue);
+    --step-inactive: var(--light-gray);
+
+
+
+    /* Bordes */
+    --border-style: 0.5px solid var(--light-gray);
+
+    --border: var(--border-style);
+    --border-top: var(--border-style);
+    --border-right: var(--border-style);
+    --border-bottom: var(--border-style);
+    --border-left: var(--border-style);
+
+}

@@ -1,0 +1,541 @@
+/* Globales */
+::selection {
+    background-color: var(--light-blue);
+    color: var(--txt-dark);  
+}
+
+.page-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background: radial-gradient(
+      50% 50% at 50% 50%,
+      var(--bg-light) 78.37%,
+      var(--light-blue) 100%
+    );
+    opacity: 0;
+    visibility: hidden;
+}
+
+.page-transition.is-active {
+    visibility: visible;
+}
+
+
+/* Logo cover */
+
+.logo {
+    font-family: "EB Garamond", serif;
+    font-style: italic;
+    line-height: 0.8;
+    letter-spacing: -0.08em;
+    text-decoration: none;
+}
+
+.logo-animated {
+    font-size: clamp(80px, 16vw, 160px);
+}
+
+.logo-char {
+    display: inline-block;
+    font-style: italic;
+    transition:
+        filter 0.8s ease,
+        opacity 0.8s ease;
+    font-weight: var(--original-weight);
+}
+
+#cover .text-random-weight .word {
+    margin-right: 0;
+}
+
+/* Pesos base */
+.logo-char--1 {
+    font-weight: 500;
+}
+
+.logo-char--2 {
+    font-weight: 400;
+}
+
+.logo-char--3 {
+    font-weight: 600;
+}
+
+.logo-char--4 {
+    font-weight: 500;
+}
+
+.logo-char--5 {
+    font-weight: 600;
+}
+
+.logo-char--6 {
+    font-weight: 400;
+}
+
+.logo-char--7 {
+    font-weight: 600;
+}
+
+.logo-char--8 {
+    font-weight: 500;
+}
+
+/* Hover blur para logo principal y footer */
+.logo:hover .logo-char {
+    opacity: 0.9;
+}
+
+.logo:hover .logo-char:nth-child(2),
+.logo:hover .logo-char:nth-child(5),
+.logo:hover .logo-char:nth-child(7) {
+    filter: blur(1.5px);
+}
+
+.logo:hover .logo-char:nth-child(1),
+.logo:hover .logo-char:nth-child(3),
+.logo:hover .logo-char:nth-child(4),
+.logo:hover .logo-char:nth-child(6),
+.logo:hover .logo-char:nth-child(8) {
+    filter: blur(0.3px);
+}
+
+/* Button */
+
+.text-random-weight .word {
+    display: inline-block;
+    margin-right: 0.25em;
+}
+
+.text-random-weight .char {
+    display: inline-block;
+    transition: font-variation-settings 0.25s ease;
+}
+
+/* Hover Button */
+
+.hover-glow {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    transition:
+        color 0.4s ease,
+        transform 0.4s ease;
+}
+
+.hover-glow::before {
+    content: "";
+
+    position: absolute;
+    inset: -40%;
+
+    pointer-events: none;
+    z-index: -1;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(255, 250, 245, 1) 0%,
+        rgba(255, 246, 237, 1) 20%,
+        rgba(178, 201, 230, 0.75) 50%,
+        rgba(178, 201, 230, 0) 100%
+    );
+
+    opacity: 0;
+    transform: scale(0.75);
+
+    filter: blur(18px);
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.6s ease;
+}
+
+.hover-glow:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media (hover: hover) {
+
+    .hover-glow:hover::before {
+        animation: haloBreath 2.4s ease-in-out infinite;
+    }
+
+}
+
+@keyframes haloBreath {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+/* Footer */
+
+#portal .footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    z-index: 20;
+    
+    width: 100%;
+    background-color: var(--bg-blue);
+    color: var(--txt-light);
+    border-top: var(--border-top);
+    z-index: 20;
+}
+
+.footer-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-link,
+.text-footer {
+    font-family: "EB Garamond", serif;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-style: italic;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--txt-dark);
+    text-align: center;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.24px;
+}
+
+.footer-link {
+    width: auto;
+    min-width: 130px;
+}
+.text-footer {
+    padding: 16px;
+    justify-content: left;
+    border-right: var(--border-right);
+}
+
+@media (min-width: 768px) {
+    .footer {
+        display: flex;
+
+    }
+
+    .footer-link {
+        position: relative;
+        z-index: 0;
+        border: none;
+        background: transparent;
+        overflow: hidden;
+        order: 1;
+        flex: 0 0 auto;
+        min-width: 160px;
+
+        transition:
+            color 0.4s ease-in-out,
+            transform 0.4s ease-in-out;
+    }
+
+    .text-footer {
+        padding: 0 40px;
+    }
+}
+
+/* Navbar */
+
+#header-home {
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 16px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background: transparent;
+    box-sizing: border-box;
+}
+
+#header-home .stepper-cover,
+#header-home .stepper-onboarding {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+}
+
+#header-home .stepper-onboarding {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (min-width: 768px) {
+    #header-home .stepper-cover,
+    #header-home .stepper-onboarding {
+        right: 40px;
+    }
+}
+
+.stepper,
+.stepper-onboarding {
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+
+    margin-left: auto;
+    grid-column: auto;
+    grid-row: auto;
+    justify-self: auto;
+}
+
+
+@media (min-width: 768px) {
+    #header-home {
+        padding: 0 40px;
+    }
+
+    .stepper-onboarding {
+        right: 40px;
+    }
+}
+
+.line-stepper {
+    border: none;
+    height: 0.5px;
+    background-color: var(--txt-dark);
+    width: 5px;
+}
+
+@media (min-width: 390px) {
+    .line-stepper {
+        width: 22px;
+    }
+
+}
+
+@media (min-width: 768px) {
+    .line-stepper {
+        width: 60px;
+    }
+}
+
+.logo-icon-logo {
+    max-height: 14px;
+    display: block;
+    width: auto;
+
+    transition:
+    transform 1s cubic-bezier(.19,1,.22,1),
+    filter 1s cubic-bezier(.19,1,.22,1);
+}
+
+.logo-home-link {
+    position: relative;
+}
+  
+.logo-icon-logo,
+.logo-icon-trace {
+display: block;
+transition: opacity 0.45s ease, transform 0.7s ease, filter 0.7s ease;
+}
+
+.logo-icon-trace {
+position: absolute;
+inset: 50% auto auto 50%;
+transform: translate(-50%, -50%) scale(0.45);
+opacity: 0;
+filter: blur(8px);
+}
+
+.logo-home-link:hover .logo-icon-logo {
+opacity: 0;
+transform: scale(0.82);
+filter: blur(8px);
+}
+
+.logo-home-link:hover .logo-icon-trace {
+opacity: 1;
+transform: translate(-50%, -50%) scale(0.28);
+filter: blur(0);
+}
+
+
+/* MODAL NOTA DE AYUDA */
+
+.help-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.help-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.help-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(27, 66, 109, 0.18);
+    backdrop-filter: blur(8px);
+}
+
+.help-modal__content {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    max-height: calc(100svh - 32px);
+    overflow-y: auto;
+
+    background: var(--bg-light);
+    color: var(--txt-dark);
+
+    border: 1px solid rgba(27, 66, 109, 0.25);
+
+    padding: 64px 24px 32px;
+
+    text-align: center;
+
+    transform: translateY(16px) scale(0.98);
+    filter: blur(8px);
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+.help-modal.is-open .help-modal__content {
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+.help-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+
+    border: 0;
+    background: transparent;
+
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    line-height: 1;
+    color: var(--txt-dark);
+
+    cursor: pointer;
+}
+
+.help-modal__title {
+    margin: 0 0 28px;
+
+    font-family: "EB Garamond", serif;
+    font-size: 32px;
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.help-modal__intro {
+    margin: 0 auto 32px;
+
+    font-family: "EB Garamond", serif;
+    font-size: 17px;
+    line-height: 1.35;
+}
+
+.help-modal__list {
+    text-align: left;
+}
+
+.help-modal__item {
+    padding: 20px 4px;
+    border-top: 1px solid rgba(27, 66, 109, 0.18);
+}
+
+.help-modal__item:last-child {
+    border-bottom: 1px solid rgba(27, 66, 109, 0.18);
+}
+
+.help-modal__item h3 {
+    margin: 0 0 12px;
+
+    font-family: "EB Garamond", serif;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.help-modal__item p {
+    margin: 0;
+
+    font-family: "EB Garamond", serif;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.help-modal__button {
+    margin-top: 44px;
+
+    border: 0;
+    background: transparent;
+
+    font-family: "EB Garamond", serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--txt-dark);
+
+    cursor: pointer;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    .help-modal__content {
+        padding: 56px 40px 36px;
+    }
+
+    .help-modal__title {
+        font-size: 36px;
+    }
+
+    .help-modal__intro {
+        font-size: 18px;
+    }
+}

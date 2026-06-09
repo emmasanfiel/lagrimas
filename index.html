@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--  Meta  -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lágrimas</title>
+    
+    <!--  Favicon  -->
+    <link rel="icon" href="img/favicon/favicon-3.svg" type="image/svg+xml">
+    <link rel="icon" href="img/favicon/favicon-3.png" type="image/png">
+
+    <!--  Styles  -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <!--  Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    
+
+    <!--  P5  -->
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+</head>
+
+<body class="home-loading">
+    <!-- Page transition -->
+    <div class="page-transition" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header id="header-home">
+        <a href="index.html" class="logo-home-link" aria-label="Volver al inicio">
+            <svg class="logo-icon-logo" width="172" height="61" viewBox="0 0 172 61" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M87.725 0.464571C101.357 -0.256064 111.002 0.632984 115.116 1.49875C116.399 1.76893 118.011 2.50848 119.721 3.40891C121.521 4.3568 123.733 5.65047 126.319 7.24289C130.2 9.63352 135.01 12.7528 140.672 16.5007L146.618 20.4548L146.728 20.529L146.83 20.6111C158.974 30.3641 164.518 35.1203 167.566 37.9714C168.017 38.2354 168.459 38.5449 168.842 38.9089C169.186 39.236 169.556 39.6708 169.846 40.2116C170.057 40.4319 170.255 40.6393 170.442 40.8405L171.031 41.4821L171.143 41.6413C171.254 41.7991 171.442 42.0842 171.589 42.448C171.659 42.62 172.152 43.7941 171.48 45.0857C170.655 46.6712 169.07 46.7499 168.695 46.7468C168.203 46.7426 167.81 46.6237 167.658 46.5759C167.606 46.5598 167.554 46.5403 167.501 46.5212C164.449 48.4398 158.68 51.5393 152.755 53.3796C146.699 55.2607 134.981 58.5287 116.084 59.6921C107.458 60.2232 97.1308 60.3732 86.3275 59.9685C84.21 60.0014 82.223 59.9427 80.4623 59.7448C80.2361 59.7194 80.0096 59.689 79.7836 59.6579C78.9925 59.612 78.1997 59.5646 77.4066 59.5124C63.6497 58.607 49.4875 57.5027 39.4769 54.7204C15.9712 48.1873 5.71636 47.0515 2.90368 46.9421C1.23683 46.8773 -0.0622999 45.4732 0.00230913 43.8064C0.0403725 42.8302 0.539181 41.9824 1.27965 41.4587C1.29209 41.4314 1.30442 41.4037 1.31774 41.3767C1.7873 40.4225 2.86209 39.0244 4.94567 36.8415C7.10777 34.5764 10.5573 31.2639 16.0365 26.4509C27.6158 16.2795 37.6456 9.94758 44.2875 7.48996C55.0753 3.49847 68.7309 1.87087 82.7152 0.789766C84.03 0.68812 85.3142 0.602421 86.5658 0.529024C86.9682 0.463147 87.3549 0.445153 87.725 0.464571ZM113.871 7.40988C111.026 6.81104 104.327 6.09967 94.5873 6.26633C96.4377 9.18591 97.5743 11.9317 98.5541 14.4196C99.5636 16.9832 100.365 19.1421 101.587 21.2654L101.838 21.6902L101.911 21.8113L101.973 21.9392C103.678 25.4744 105.713 30.2734 106.445 35.1921C107.179 40.1282 106.657 45.654 102.635 50.0134C101.832 50.8843 101.095 51.7815 100.164 52.8532C99.7947 53.2793 99.4031 53.7168 98.9935 54.1579C105.002 54.1503 110.663 53.9737 115.713 53.6628C134.019 52.5358 145.251 49.384 150.962 47.6101C155.378 46.2387 159.767 44.0447 162.662 42.3796C161.779 41.9448 161.192 41.1205 161.027 40.1999C157.77 37.3287 152.446 32.8697 143.158 25.4089C134.909 19.8996 128.201 15.4976 123.151 12.3874C120.613 10.8248 118.533 9.61107 116.907 8.75461C115.191 7.85112 114.244 7.48833 113.871 7.40988ZM78.6674 7.18723C66.4303 8.26638 55.224 9.88431 46.3841 13.155C40.7475 15.2406 31.3671 21.025 20.0228 30.99C14.6171 35.7384 11.3108 38.9223 9.31579 41.0124C9.14932 41.1868 8.99363 41.3541 8.84606 41.5124C14.7777 42.386 24.9318 44.4071 41.0941 48.8991C48.1232 50.8528 57.5568 51.9494 67.7572 52.7644C67.4401 52.2475 67.1805 51.6704 67.0228 51.0251C66.1423 47.4213 66.3298 41.0758 67.2601 34.7693C68.2009 28.3925 70.0007 21.3682 72.7757 16.403C74.8416 12.7069 76.8466 9.61047 78.6674 7.18723Z"
+                    fill="#1B426D" />
+            </svg>
+            <svg class="logo-icon-trace" width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M46.0289 0.0888672C46.7385 0.256036 48.496 0.599979 49.525 0.881836C50.988 1.26577 52.99 1.86128 54.9899 2.63281C56.9425 3.38612 59.1063 4.38582 60.7487 5.63965C62.85 7.24383 69.1883 10.7049 75.7604 16.8643C78.9614 19.8643 81.6216 22.3619 83.5739 24.252C84.5491 25.1961 85.3695 26.0094 86.0016 26.6699C86.5749 27.269 87.1638 27.9156 87.5231 28.4678C88.6294 30.1681 90.0972 32.6172 91.1178 35.21C91.6172 36.4786 91.938 38.5667 91.9918 41.4131C92.0474 44.3528 91.8214 48.3508 91.0553 53.5898C90.1768 59.5978 88.7378 67.2522 87.2916 71.8848C85.3998 77.9448 83.2022 82.7996 79.1588 86.1953C75.8047 89.0121 71.9221 90.6604 64.4703 91.5957C61.7693 91.9347 54.9465 92.5713 43.649 90.958C37.9029 90.1374 31.7984 88.8631 27.2906 87.0928C20.347 84.3658 13.8431 81.3904 9.37561 75.9961C5.72573 71.5888 2.8629 67.6186 1.71155 64.1914C0.696543 61.1698 -0.118825 58.1613 0.0142796 52.1787C0.111229 47.8212 0.45231 40.5222 1.03283 35.7969C1.62053 31.0135 2.39853 28.715 3.21447 27.0771C3.57722 26.3492 4.22471 25.4083 4.97815 24.4033C5.77147 23.3452 6.80835 22.052 8.0592 20.5693C10.5631 17.6015 13.9755 13.8171 18.1266 9.54883C21.1908 6.39807 22.6137 5.15187 24.6432 4.18359C28.0704 2.54852 32.3498 1.54497 36.0895 0.932617C39.8672 0.314054 43.3322 0.0577919 45.2662 0.00976562L45.653 0L46.0289 0.0888672ZM45.0612 6.01953C43.3234 6.08242 40.3267 6.31848 37.0592 6.85352C33.5194 7.43314 29.8946 8.32608 27.2272 9.59863C26.2639 10.0582 25.4943 10.5799 22.4283 13.7324C18.3615 17.9141 15.0455 21.5933 12.6451 24.4385C11.4438 25.8624 10.4837 27.0629 9.77893 28.0029C9.03464 28.9957 8.68215 29.5571 8.58459 29.7529C8.17112 30.5829 7.52458 32.1603 6.98791 36.5283C6.44413 40.9545 6.10787 48.0182 6.01233 52.3125C5.89727 57.4851 6.56516 59.7978 7.39904 62.2803C8.15139 64.52 10.3044 67.7105 13.9967 72.1689C17.3789 76.2528 22.5218 78.7736 29.484 81.5078C33.3458 83.0244 38.9098 84.2207 44.4967 85.0186C55.1994 86.5469 61.4809 85.9239 63.7223 85.6426C70.466 84.7962 73.1171 83.4341 75.3004 81.6006C77.9656 79.3623 79.7458 75.9211 81.5641 70.0967C82.8643 65.9316 84.2495 58.6596 85.1178 52.7217C85.847 47.7351 86.041 44.072 85.9928 41.5264C85.9429 38.8878 85.6357 37.6647 85.5348 37.4082C84.732 35.3688 83.5176 33.3114 82.4948 31.7393C82.5148 31.77 82.4739 31.7073 82.3063 31.5137C82.154 31.3378 81.9435 31.1076 81.6666 30.8184C81.113 30.2398 80.3568 29.4878 79.401 28.5625C77.4911 26.7134 74.8698 24.2525 71.6578 21.2422C65.2179 15.2066 60.3785 12.9068 57.1071 10.4092C56.1466 9.67595 54.6155 8.91904 52.8307 8.23047C51.0933 7.56019 49.3146 7.02889 48.0026 6.68457L47.9821 6.67871L47.9615 6.67383C47.1084 6.43695 46.1668 6.26755 45.0612 6.01953Z" fill="#1B426D"/>
+                <path d="M38.3781 32.7545C40.9047 31.3799 45.2113 31.043 47.2321 31.0114C47.5997 31.1472 47.9566 31.2789 48.327 31.3754C48.6996 31.4726 49.0745 31.5323 49.4906 31.6243C51.1365 32.1334 52.6137 32.6183 53.9835 33.5003C55.5233 34.4918 57.7733 35.6856 58.5002 37.5893C58.8464 38.496 59.5511 42.1109 58.8073 47.1896C58.0351 52.4623 57.2986 56.2974 55.3231 57.6388C53.362 58.9704 49.8646 61.3304 44.9437 60.5419C42.1529 60.0947 37.9173 59.3795 33.4266 53.5185C32.2938 52.0399 31.6843 50.2905 32.1665 48.2783C33.2783 43.6385 35.8508 34.1294 38.3781 32.7545Z" fill="#1B426D"/>
+            </svg>  
+        </a>
+
+        <div class="stepper stepper-cover">
+            <img src="img/logos/ic-contener.svg" alt="logo de la fase contener">
+            <hr class="line line-stepper">
+            <img src="img/logos/ic-desbordar.svg" alt="logo de la fase desbordar">
+            <hr class="line line-stepper">
+            <img src="img/logos/ic-escuchar.svg" alt="logo de la fase escuchar">
+        </div>
+
+        <!-- Habilitar segundo stepper en el futuro -->
+        <!-- <div class="stepper stepper-onboarding">
+            <hr class="line line-stepper">
+            <img src="img/logos/ic-recorrido-emocional.svg" alt="logo del recorrido emocional">
+        </div> -->
+    </header>
+
+    <!-- Main -->
+    <main>
+        <section id="story-home">
+
+            <!-- Fondo común de toda la narrativa -->
+            <div class="story-bg" aria-hidden="true">
+                <div class="story-bg-layer story-bg-layer--radial"></div>
+                <div class="story-bg-layer story-bg-layer--portal"></div>
+            </div>
+
+            <div class="story-content">
+
+                <!-- Cover -->
+                <div class="story-step cover">
+                    <div class="container-cover padding-side">
+                        <h1 class="logo logo-animated text-random-weight">
+                            <span class="logo-char logo-char--1">l</span>
+                            <span class="logo-char logo-char--2">á</span>
+                            <span class="logo-char logo-char--3">g</span>
+                            <span class="logo-char logo-char--4">r</span>
+                            <span class="logo-char logo-char--5">i</span>
+                            <span class="logo-char logo-char--6">m</span>
+                            <span class="logo-char logo-char--7">a</span>
+                            <span class="logo-char logo-char--8">s</span>
+                        </h1>
+                        <div class="container-text-claim">
+                            <p class="label-claim">Experiencia interactiva sobre el llanto<br> como huella emocional
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="container-scroll-text">
+                        <span class="text-scroll">Scroll para sentir</span>
+                        <img src="img/ic-down-arrow.svg" class="icon-scroll-arrow" alt="icono para hacer scroll hacia abajo">
+                    </div>
+                </div>
+
+                <!-- Intro -->
+                <div class="story-step intro story-panel story-panel--intro">
+                    <p class="intro-text intro-text--1">
+                        Llorar es una de las formas más humanas de expresar lo que sentimos.
+                    </p>
+            
+                    <p class="intro-text intro-text--2">
+                        Esta experiencia invita a explorar aquello que se esconde detrás de nuestras lágrimas.
+                    </p>
+                </div>
+
+                <!-- Onboarding -->
+                <div class="story-step onboarding">
+
+                    <div class="container-onboarding">
+
+                        <article class="phase phase-1" data-phase="contener">
+                            <header class="phase-header">
+                                <img class="phase-title-img reveal-item" src="img/logos/ic-contener.svg" alt="Contener">
+
+                                <span class="phase-kicker label-claim reveal-item">
+                                    La batalla
+                                </span>
+                            </header>
+
+                            <svg class="phase-illustration phase-illustration--contener reveal-item" width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle class="phase1-circle phase1-circle--outer" cx="125" cy="125" r="125" fill="url(#paint0_radial_776_272)"/>
+                                <circle class="phase1-circle phase1-circle--middle" cx="125.243" cy="153.453" r="96.5467" fill="url(#paint1_radial_776_272)"/>
+                                <circle class="phase1-circle phase1-circle--inner" cx="125.243" cy="180.204" r="69.7957" fill="url(#paint2_radial_776_272)"/>
+                                <defs>
+                                    <radialGradient id="paint0_radial_776_272" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(125 125) rotate(90) scale(202.273)">
+                                        <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                        <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint1_radial_776_272" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(125.243 153.453) rotate(90) scale(156.23)">
+                                        <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                        <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint2_radial_776_272" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(125.243 180.204) rotate(89.7892) scale(69.7962)">
+                                        <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                        <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+
+                            <div class="phase-text reveal-item">
+                                <p>
+                                    Intentar sostener lo que empieza a empujar desde dentro.
+                                </p>
+
+                                <p>
+                                    Las lágrimas no solo responden a lo que sentimos, sino también a todo lo que aprendimos sobre ellas.
+                                </p>
+                            </div>
+                        </article>
+
+                        <hr class="line line-phases line-1">
+
+                        <article class="phase phase-2" data-phase="contener">
+                            <header class="phase-header">
+                                <img class="phase-title-img reveal-item" src="img/logos/ic-desbordar.svg" alt="Contener">
+
+                                <span class="phase-kicker label-claim reveal-item">
+                                    La derrota
+                                </span>
+                            </header>
+
+                            <svg class="phase-illustration phase-illustration--desbordar reveal-item" width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g class="phase2-drops">
+                                    <circle class="phase2-drop phase2-drop--1" data-phase2-drop="1" cx="124.999" cy="28.4296" r="28.4296" fill="url(#paint0_radial_776_299)"/>
+                                    <circle class="phase2-drop phase2-drop--2" data-phase2-drop="2" cx="124.999" cy="221.57" r="28.4296" fill="url(#paint1_radial_776_299)"/>
+                                    <circle class="phase2-drop phase2-drop--3" data-phase2-drop="3" cx="193.285" cy="56.7143" r="28.4296" fill="url(#paint2_radial_776_299)"/>
+                                    <circle class="phase2-drop phase2-drop--4" data-phase2-drop="4" cx="56.7139" cy="193.286" r="28.4296" fill="url(#paint3_radial_776_299)"/>
+                                    <circle class="phase2-drop phase2-drop--5" data-phase2-drop="5" cx="221.57" cy="125" r="28.4296" fill="url(#paint4_radial_776_299)"/>
+                                    <circle class="phase2-drop phase2-drop--6" data-phase2-drop="6" cx="28.4298" cy="125" r="28.4296" fill="url(#paint5_radial_776_299)"/>
+                                    <circle class="phase2-drop phase2-drop--7" data-phase2-drop="7" cx="193.286" cy="193.286" r="28.4296" fill="url(#paint6_radial_776_299)"/>
+                                    <circle class="phase2-drop phase2-drop--8" data-phase2-drop="8" cx="56.7144" cy="56.7144" r="28.4296" fill="url(#paint7_radial_776_299)"/>
+                                </g>
+                            
+                                <g class="phase2-arrows">
+                                    <path class="phase2-arrow phase2-arrow--1" data-phase2-arrow="1" d="M125.627 67.5127C125.53 67.415 125.372 67.415 125.274 67.5127L123.683 69.1037C123.585 69.2013 123.585 69.3596 123.683 69.4572C123.781 69.5549 123.939 69.5549 124.036 69.4572L125.451 68.043L126.865 69.4572C126.963 69.5549 127.121 69.5549 127.218 69.4572C127.316 69.3596 127.316 69.2013 127.218 69.1037L125.627 67.5127ZM125.451 67.6895L125.201 67.6895L125.201 85.74L125.451 85.74L125.701 85.74L125.701 67.6895L125.451 67.6895Z" fill="#6594CD"/>
+                                    <path class="phase2-arrow phase2-arrow--2" data-phase2-arrow="2" d="M125.274 182.487C125.372 182.585 125.53 182.585 125.627 182.487L127.218 180.896C127.316 180.798 127.316 180.64 127.218 180.543C127.121 180.445 126.963 180.445 126.865 180.543L125.451 181.957L124.036 180.543C123.939 180.445 123.781 180.445 123.683 180.543C123.585 180.64 123.585 180.798 123.683 180.896L125.274 182.487ZM125.451 164.26L125.201 164.26L125.201 182.31L125.451 182.31L125.701 182.31L125.701 164.26L125.451 164.26Z" fill="#6594CD"/>
+                                    <path class="phase2-arrow phase2-arrow--3" data-phase2-arrow="3" d="M166.093 84.7944C166.093 84.6564 165.981 84.5444 165.843 84.5444L163.593 84.5444C163.455 84.5444 163.343 84.6564 163.343 84.7944C163.343 84.9325 163.455 85.0444 163.593 85.0444L165.593 85.0444L165.593 87.0444C165.593 87.1825 165.705 87.2944 165.843 87.2944C165.981 87.2944 166.093 87.1825 166.093 87.0444L166.093 84.7944ZM165.843 84.7944L165.666 84.6177L152.903 97.3813L153.08 97.5581L153.256 97.7349L166.02 84.9712L165.843 84.7944Z" fill="#6594CD"/>
+                                    <path class="phase2-arrow phase2-arrow--4" data-phase2-arrow="4" d="M84.544 165.844C84.544 165.982 84.6559 166.094 84.794 166.094L87.044 166.094C87.182 166.094 87.294 165.982 87.294 165.844C87.294 165.706 87.182 165.594 87.044 165.594L85.044 165.594L85.044 163.594C85.044 163.456 84.932 163.344 84.794 163.344C84.6559 163.344 84.544 163.456 84.544 163.594L84.544 165.844ZM97.5576 153.08L97.3808 152.903L84.6172 165.667L84.794 165.844L84.9707 166.021L97.7344 153.257L97.5576 153.08Z" fill="#6594CD"/>
+                                    <path class="phase2-arrow phase2-arrow--5" data-phase2-arrow="5" d="M182.487 125.628C182.585 125.53 182.585 125.372 182.487 125.274L180.896 123.683C180.799 123.586 180.64 123.586 180.543 123.683C180.445 123.781 180.445 123.939 180.543 124.037L181.957 125.451L180.543 126.865C180.445 126.963 180.445 127.121 180.543 127.219C180.64 127.317 180.799 127.317 180.896 127.219L182.487 125.628ZM182.311 125.451L182.311 125.201L164.26 125.201L164.26 125.451L164.26 125.701L182.311 125.701L182.311 125.451Z" fill="#6594CD"/>
+                                    <path class="phase2-arrow phase2-arrow--6" data-phase2-arrow="6" d="M67.5129 125.274C67.4153 125.372 67.4153 125.53 67.5129 125.628L69.1039 127.219C69.2015 127.317 69.3598 127.317 69.4575 127.219C69.5551 127.121 69.5551 126.963 69.4575 126.865L68.0432 125.451L69.4575 124.037C69.5551 123.939 69.5551 123.781 69.4575 123.683C69.3598 123.586 69.2015 123.586 69.1039 123.683L67.5129 125.274ZM85.7402 125.451L85.7402 125.201L67.6897 125.201L67.6897 125.451L67.6897 125.701L85.7402 125.701L85.7402 125.451Z" fill="#6594CD"/>
+                                    <path class="phase2-arrow phase2-arrow--7" data-phase2-arrow="7" d="M165.206 166.094C165.344 166.094 165.456 165.982 165.456 165.844L165.456 163.594C165.456 163.456 165.344 163.344 165.206 163.344C165.067 163.344 164.956 163.456 164.956 163.594L164.956 165.594L162.956 165.594C162.817 165.594 162.706 165.706 162.706 165.844C162.706 165.982 162.817 166.094 162.956 166.094L165.206 166.094ZM165.206 165.844L165.382 165.667L152.619 152.903L152.442 153.08L152.265 153.257L165.029 166.021L165.206 165.844Z" fill="#6594CD"/>
+                                    <path class="phase2-arrow phase2-arrow--8" data-phase2-arrow="8" d="M84.1563 84.5444C84.0182 84.5444 83.9063 84.6564 83.9063 84.7944L83.9063 87.0444C83.9063 87.1825 84.0182 87.2944 84.1563 87.2944C84.2943 87.2944 84.4063 87.1825 84.4063 87.0444L84.4063 85.0444L86.4063 85.0444C86.5443 85.0444 86.6563 84.9325 86.6563 84.7944C86.6563 84.6564 86.5443 84.5444 86.4063 84.5444L84.1563 84.5444ZM96.9199 97.5581L97.0967 97.3813L84.333 84.6177L84.1563 84.7944L83.9795 84.9712L96.7431 97.7349L96.9199 97.5581Z" fill="#6594CD"/>
+                                </g>
+                            
+                                <circle class="phase2-core" cx="124.294" cy="125" r="28.4296" fill="url(#paint8_radial_776_299)"/>
+                            
+                                <defs>
+                                    <radialGradient id="paint0_radial_776_299" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(124.999 28.4296) rotate(90) scale(46.0043)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint1_radial_776_299" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(124.999 221.57) rotate(90) scale(46.0043)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint2_radial_776_299" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(193.285 56.7143) rotate(90) scale(46.0043)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint3_radial_776_299" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(56.7139 193.286) rotate(90) scale(46.0043)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint4_radial_776_299" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(221.57 125) rotate(90) scale(46.0043)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint5_radial_776_299" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(28.4298 125) rotate(90) scale(46.0043)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint6_radial_776_299" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(193.286 193.286) rotate(90) scale(46.0043)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint7_radial_776_299" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(56.7144 56.7144) rotate(90) scale(46.0043)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint8_radial_776_299" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(123.764 124.823) rotate(135) scale(28.25)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                            
+
+                            <div class="phase-text reveal-item">
+                                <p>
+                                    Las emociones se expanden y el llanto encuentra una grieta para salir.
+                                </p>
+
+                                <p>
+                                    Las palabras de quienes nos rodean pueden sostener el llanto, cuestionarlo o intentar silenciarlo.
+                                </p>
+                            </div>
+                        </article>
+
+                        <hr class="line line-phases line-2">
+
+                        <article class="phase phase-3" data-phase="contener">
+                            <header class="phase-header">
+                                <img class="phase-title-img reveal-item" src="img/logos/ic-escuchar.svg" alt="Contener">
+
+                                <span class="phase-kicker label-claim reveal-item">
+                                    La tregua
+                                </span>
+                            </header>
+
+                            <svg class="phase-illustration phase-illustration--escuchar reveal-item" width="250" height="250" viewBox="0 0 250 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle class="phase3-container" cx="125" cy="125" r="125" fill="url(#paint0_radial_776_284)"/>
+                            
+                                <g class="phase3-particles">
+                                    <circle class="phase3-particle phase3-particle--1" cx="125" cy="125" r="15" fill="url(#paint1_radial_776_284)"/>
+                                    <circle class="phase3-particle phase3-particle--2" cx="167.5" cy="57" r="15" fill="url(#paint2_radial_776_284)"/>
+                                    <circle class="phase3-particle phase3-particle--3" cx="45.5" cy="87" r="15" fill="url(#paint3_radial_776_284)"/>
+                                    <circle class="phase3-particle phase3-particle--4" cx="89.5" cy="202" r="15" fill="url(#paint4_radial_776_284)"/>
+                                    <circle class="phase3-particle phase3-particle--5" cx="208.5" cy="141" r="15" fill="url(#paint5_radial_776_284)"/>
+                                </g>
+                            
+                                <defs>
+                                    <radialGradient id="paint0_radial_776_284" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(125 125) rotate(90) scale(202.273)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint1_radial_776_284" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(125 125) rotate(89.7892) scale(15.0001)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint2_radial_776_284" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(167.5 57) rotate(89.7892) scale(15.0001)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint3_radial_776_284" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(45.5 87) rotate(89.7892) scale(15.0001)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint4_radial_776_284" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(89.5 202) rotate(89.7892) scale(15.0001)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                    <radialGradient id="paint5_radial_776_284" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(208.5 141) rotate(89.7892) scale(15.0001)">
+                                    <stop stop-color="#FFF6ED" stop-opacity="0"/>
+                                    <stop offset="1" stop-color="#B2C9E6"/>
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+
+                            <div class="phase-text reveal-item">
+                                <p>
+                                    Después del llanto, algo cambia en la forma de mirarnos.
+                                </p>
+
+                                <p>
+                                    Pequeñas huellas revelan las historias, aprendizajes y emociones que llevamos dentro.
+                                </p>
+                            </div>
+                        </article>
+
+                    </div>
+
+
+                </div>
+
+                <!-- Portal -->
+                <div id="portal" class="story-step portal-step">
+
+                    <div id="start-sketch-container" aria-hidden="true"></div>
+
+                    <!-- Portal -->
+                    <div class="container-portal circle-portal">
+
+                        <!-- Niebla -->
+                        <span class="portal-fog"></span>
+
+                        <!-- Halos -->
+                        <span class="portal-halo portal-halo--1"></span>
+                        <span class="portal-halo portal-halo--2"></span>
+
+                        <!-- Núcleo clicable -->
+                        <a
+                            href="sketch.html"
+                            class="portal-core"
+                            aria-label="Empezar la experiencia">
+                        </a>
+
+                        <!-- Texto clicable -->
+                        <a
+                            href="sketch.html"
+                            class="link-start text-random-weight">
+                            Empezar la experiencia
+                        </a>
+
+                    </div>
+
+                    <footer class="footer">
+                        <div class="footer-wrapper">
+                            <span class="text-footer">Lágrimas 2026 © - Emma Carrillo</span>
+                            <a class="footer-link text-random-weight hover-glow" href="#">Nota de ayuda</a>
+                        </div>
+                    </footer>
+                </div>
+
+            </div>
+                    
+        </section>
+    </main>
+
+</main>
+
+<!-- Modal Nota de ayuda -->
+<div class="help-modal" id="help-modal" aria-hidden="true">
+    <div class="help-modal__overlay" data-close-help-modal></div>
+
+    <section class="help-modal__content" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
+        <button class="help-modal__close" type="button" aria-label="Cerrar nota de ayuda" data-close-help-modal>
+            <img src="img/ic-close.svg" alt="icono para cerrar">
+        </button>
+        <h2 id="help-modal-title" class="help-modal__title">
+            Recursos de apoyo
+        </h2>
+
+        <p class="help-modal__intro">
+            Esta experiencia aborda el llanto desde la escucha emocional,
+            pero no sustituye el apoyo profesional. Si lo que sientes se vuelve
+            difícil de sostener, pedir ayuda también puede ser una forma de cuidarte.
+        </p>
+
+        <div class="help-modal__list">
+            <article class="help-modal__item">
+                <h3>Profesional especializado</h3>
+                <p>Para acompañamiento emocional y psicológico.</p>
+            </article>
+
+            <article class="help-modal__item">
+                <h3>Emergencias · 112</h3>
+                <p>Atención inmediata y emergencias.</p>
+            </article>
+
+            <article class="help-modal__item">
+                <h3>Apoyo emocional · 024</h3>
+                <p>Línea gratuita, confidencial y disponible 24/7 en España.</p>
+            </article>
+        </div>
+
+        <button class="help-modal__button text-random-weight" type="button" data-close-help-modal>
+            Cerrar
+        </button>
+    </section>
+</div>
+
+<!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js"></script>
+
+<!-- Efectos reutilizables -->
+<script src="js/textEffects.js"></script>
+
+<!-- Main y Sketch -->
+<script src="js/main.js"></script>
+<script src="js/StartSketch.js"></script>
+
+</body>
+
+</html>
