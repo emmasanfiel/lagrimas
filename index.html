@@ -353,60 +353,58 @@
         </section>
     </main>
 
-</main>
+    <!-- Modal Nota de ayuda -->
+    <div class="help-modal" id="help-modal" aria-hidden="true">
+        <div class="help-modal__overlay" data-close-help-modal></div>
 
-<!-- Modal Nota de ayuda -->
-<div class="help-modal" id="help-modal" aria-hidden="true">
-    <div class="help-modal__overlay" data-close-help-modal></div>
+        <section class="help-modal__content" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
+            <button class="help-modal__close" type="button" aria-label="Cerrar nota de ayuda" data-close-help-modal>
+                <img src="img/ic-close.svg" alt="icono para cerrar">
+            </button>
+            <h2 id="help-modal-title" class="help-modal__title">
+                Recursos de apoyo
+            </h2>
 
-    <section class="help-modal__content" role="dialog" aria-modal="true" aria-labelledby="help-modal-title">
-        <button class="help-modal__close" type="button" aria-label="Cerrar nota de ayuda" data-close-help-modal>
-            <img src="img/ic-close.svg" alt="icono para cerrar">
-        </button>
-        <h2 id="help-modal-title" class="help-modal__title">
-            Recursos de apoyo
-        </h2>
+            <p class="help-modal__intro">
+                Esta experiencia aborda el llanto desde la escucha emocional,
+                pero no sustituye el apoyo profesional. Si lo que sientes se vuelve
+                difícil de sostener, pedir ayuda también puede ser una forma de cuidarte.
+            </p>
 
-        <p class="help-modal__intro">
-            Esta experiencia aborda el llanto desde la escucha emocional,
-            pero no sustituye el apoyo profesional. Si lo que sientes se vuelve
-            difícil de sostener, pedir ayuda también puede ser una forma de cuidarte.
-        </p>
+            <div class="help-modal__list">
+                <article class="help-modal__item">
+                    <h3>Profesional especializado</h3>
+                    <p>Para acompañamiento emocional y psicológico.</p>
+                </article>
 
-        <div class="help-modal__list">
-            <article class="help-modal__item">
-                <h3>Profesional especializado</h3>
-                <p>Para acompañamiento emocional y psicológico.</p>
-            </article>
+                <article class="help-modal__item">
+                    <h3>Emergencias · 112</h3>
+                    <p>Atención inmediata y emergencias.</p>
+                </article>
 
-            <article class="help-modal__item">
-                <h3>Emergencias · 112</h3>
-                <p>Atención inmediata y emergencias.</p>
-            </article>
+                <article class="help-modal__item">
+                    <h3>Apoyo emocional · 024</h3>
+                    <p>Línea gratuita, confidencial y disponible 24/7 en España.</p>
+                </article>
+            </div>
 
-            <article class="help-modal__item">
-                <h3>Apoyo emocional · 024</h3>
-                <p>Línea gratuita, confidencial y disponible 24/7 en España.</p>
-            </article>
-        </div>
+            <button class="help-modal__button text-random-weight" type="button" data-close-help-modal>
+                Cerrar
+            </button>
+        </section>
+    </div>
 
-        <button class="help-modal__button text-random-weight" type="button" data-close-help-modal>
-            Cerrar
-        </button>
-    </section>
-</div>
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js"></script>
 
-<!-- GSAP -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/SplitText.min.js"></script>
+    <!-- Efectos reutilizables -->
+    <script src="js/textEffects.js"></script>
 
-<!-- Efectos reutilizables -->
-<script src="js/textEffects.js"></script>
-
-<!-- Main y Sketch -->
-<script src="js/main.js"></script>
-<script src="js/StartSketch.js"></script>
+    <!-- Main y Sketch -->
+    <script src="js/main.js"></script>
+    <script src="js/StartSketch.js"></script>
 
 </body>
 
