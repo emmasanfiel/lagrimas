@@ -473,7 +473,7 @@ SECCIONES
     position: relative;
     margin: auto;
     width: clamp(350px, 40vw, 550px);
-    height: clamp(350px, 40vw, 550px);
+    width: clamp(350px, 40vw, 550px);
     border-radius: 50%;
 
     z-index: 10;
@@ -490,6 +490,13 @@ SECCIONES
     filter: blur(16px);
 
     pointer-events: none;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container-portal {
+        width: 500px;
+        height: 500px;
+    }
 }
 
 #start-sketch-container {
