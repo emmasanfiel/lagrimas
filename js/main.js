@@ -457,8 +457,8 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollTrigger: {
                 trigger: "#story-home",
                 start: "top top",
-                end: isDesktop ? "+=620%" : "+=760%",
-                scrub: isDesktop ? 1 : 1.25,
+                end: isDesktop ? "+=620%" : "+=500%",
+                scrub: isDesktop ? 1 : 0.6,
                 pin: true,
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
