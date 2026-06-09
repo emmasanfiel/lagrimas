@@ -250,6 +250,7 @@
         order: 1;
         flex: 0 0 auto;
         min-width: 160px;
+        padding: 22px;
 
         transition:
             color 0.4s ease-in-out,
@@ -258,6 +259,15 @@
 
     .text-footer {
         padding: 0 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .footer-link {
+
+        padding: 16px;
+
     }
 }
 
