@@ -21,7 +21,7 @@ class FactorSystem {
             new FactorNode(
               "juicio social",
               [
-                "Las normas de género condicionan el llanto: los hombres son castigados por llorar; y las mujeres por llorar demasiado.",
+                "El género condiciona el llanto: a los hombres se les pide no llorar y a las mujeres no llorar demasiado.",
                 "Muchas personas evitan llorar en público por miedo a ser juzgadas como débiles o poco competentes.",
                 "La incomodidad ante el llanto no siempre habla de quien llora, sino del entorno que lo observa."
               ],
