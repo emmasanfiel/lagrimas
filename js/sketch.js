@@ -14,13 +14,19 @@ let pausedProgress = 0;
 // CANVAS
 function getCanvasHeight() {
   const header = document.querySelector("#header-canvas");
+  const buttons = document.querySelector(".container-buttons");
+
   const headerHeight = header ? header.offsetHeight : 0;
+  // Evitar que en responsive los botones tapen el canvas
+  const buttonsHeight = buttons && window.innerWidth < 768
+    ? buttons.offsetHeight
+    : 0;
 
   const viewportHeight = window.visualViewport
     ? window.visualViewport.height
     : window.innerHeight;
 
-  return viewportHeight - headerHeight;
+  return viewportHeight - headerHeight - buttonsHeight;
 }
 
 // SETUP
