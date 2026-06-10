@@ -271,60 +271,81 @@ function setupAmbientSound() {
   const icon = buttonSound.querySelector("img");
   const label = buttonSound.querySelector(".pause-label");
 
-  if (label) {
-    updateRandomWeightText(label, "Sonido");
-  }
-
-  let isSoundMuted = false;
   const maxVolume = 0.2;
 
-  // Arranca el audio con fade-in
+  // En mobile el autoplay puede bloquearse aunque venga de un click en index.html.
+  // Por eso empezamos asumiendo que el sonido está silenciado hasta confirmar
+  // que audio.play() ha funcionado realmente.
+  let isSoundMuted = true;
+
+  // Estado visual cuando el sonido está activo.
+  function setSoundActiveUI() {
+    isSoundMuted = false;
+
+    updateRandomWeightText(label, "Sonido");
+    icon.src = "img/ic-active-sound.svg";
+    icon.alt = "icono de sonido activado";
+    buttonSound.setAttribute("aria-pressed", "false");
+  }
+
+  // Estado visual cuando el sonido está silenciado o bloqueado.
+  function setSoundMutedUI() {
+    isSoundMuted = true;
+
+    updateRandomWeightText(label, "Silencio");
+    icon.src = "img/ic-mute.svg";
+    icon.alt = "icono de sonido desactivado";
+    buttonSound.setAttribute("aria-pressed", "true");
+  }
+
+  // Intentamos arrancar el audio al entrar en la experiencia.
+  // Si el navegador lo permite, hacemos fade-in.
+  // Si lo bloquea, actualizamos la UI para que el primer tap del usuario
+  // sirva para activar el sonido, no para silenciarlo.
   audio.volume = 0;
 
-  audio.play().catch(() => {
-    console.log("Autoplay bloqueado");
-  });
+  audio.play()
+    .then(() => {
+      setSoundActiveUI();
 
-  gsap.to(audio, {
-    volume: maxVolume,
-    duration: 3
-  });
+      gsap.to(audio, {
+        volume: maxVolume,
+        duration: 3
+      });
+    })
+    .catch(() => {
+      setSoundMutedUI();
+      console.log("Autoplay bloqueado");
+    });
 
   buttonSound.addEventListener("click", () => {
-    isSoundMuted = !isSoundMuted;
+    // Comprobamos el estado real del audio además de nuestra variable.
+    // Esto evita el bug mobile en el que el navegador bloquea el autoplay,
+    // pero la interfaz cree que el sonido ya estaba activo.
+    const shouldActivateSound = isSoundMuted || audio.paused;
 
-    if (isSoundMuted) {
-      // Bajamos el volumen suavemente y pausamos
+    if (shouldActivateSound) {
+      audio.play().then(() => {
+        setSoundActiveUI();
+
+        gsap.to(audio, {
+          volume: maxVolume,
+          duration: 1.2,
+          ease: "power2.out"
+        });
+      });
+
+    } else {
+      // Si el sonido ya está activo, el botón lo apaga con fade-out.
       gsap.to(audio, {
         volume: 0,
         duration: 0.8,
         ease: "power2.out",
         onComplete: () => {
           audio.pause();
+          setSoundMutedUI();
         }
       });
-
-      updateRandomWeightText(label, "Silencio");
-      icon.src = "img/ic-mute.svg";
-      icon.alt = "icono de sonido desactivado";
-      buttonSound.setAttribute("aria-pressed", "true");
-
-    } else {
-      // Reanudamos y subimos el volumen suavemente
-      audio.play().catch(() => {
-        console.log("No se pudo reanudar el audio");
-      });
-
-      gsap.to(audio, {
-        volume: maxVolume,
-        duration: 1.2,
-        ease: "power2.out"
-      });
-
-      updateRandomWeightText(label, "Sonido");
-      icon.src = "img/ic-active-sound.svg";
-      icon.alt = "icono de sonido activado";
-      buttonSound.setAttribute("aria-pressed", "false");
     }
   });
 }
