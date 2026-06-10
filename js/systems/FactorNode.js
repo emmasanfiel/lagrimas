@@ -232,7 +232,7 @@ class FactorNode {
         // La subimos un poco más para que no choque con los botones inferiores
         if (isMobile) {
             boxX = (width - boxW) / 2;
-            boxY = height - boxH - 80;
+            boxY = height - boxH - 20;
         } else {
             // En tablet/desktop, la nota aparece al lado contrario del nodo
             boxX = this.x < width / 2
