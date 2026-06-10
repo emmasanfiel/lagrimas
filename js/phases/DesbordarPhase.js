@@ -16,7 +16,7 @@ class DesbordarPhase {
       ? data.mainCircle
       : new MainTearCircle(mouseX, mouseY);
 
-      this.emitter.startFollowingMouse();
+      this.emitter.forceFollowingMouse();
       this.emitter.followSpeed = 0.20;
 
       // nuevo tamaño fase 2

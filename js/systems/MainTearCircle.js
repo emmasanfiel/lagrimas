@@ -207,8 +207,17 @@ class MainTearCircle {
         this.isPressed = false;
     }
 
-    // cuando el círculo empieza a seguir el mouse
+    // Cuando el círculo empieza a seguir el mouse
+    // Fase 1: el círculo solo sigue el mouse en desktop
+    // En mobile/tablet queda fijo para evitar una interacción confusa
     startFollowingMouse() {
+        const isDesktop = width >= 1024;
+        this.followMouse = isDesktop;
+    }
+
+    // Fase 2: el emisor debe seguir siempre al usuario,
+    // también en mobile/tablet.
+    forceFollowingMouse() {
         this.followMouse = true;
     }
 
